@@ -1,0 +1,24 @@
+{
+  "name" : "Reset Image Aspect Ratio",
+  "identifier" : "com.gilesperry.reset-image-aspect-ratio",
+  "version" : "1.0",
+  "compatibleVersion": 49,
+  "description" : "Resets selected images to their original aspect ratio.",
+  "homepage": "https://github.com/perrysmotors/reset-image-aspect-ratio",
+  "author" : "Giles Perry",
+  "appcast": "https://api.sketchpacks.com/v1/plugins/com.gilesperry.reset-image-aspect-ratio/appcast",
+  "commands" : [
+    {
+      "script" : "reset-image-aspect-ratio.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Reset selected images",
+      "identifier" : "reset"
+    }
+  ],
+  "menu": {
+    "items": [
+      "reset"
+    ]
+  }
+}
