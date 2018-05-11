@@ -1,0 +1,19 @@
+{
+  "compatibleVersion": 3,
+  "bundleVersion": 1,
+  "icon": "icon.png",
+  "commands": [
+    {
+      "name": "Reset Selected Images",
+      "identifier": "reset",
+      "script": "./reset-image-aspect-ratio.js",
+      "handler": "onReset"
+    }
+  ],
+  "menu": {
+    "title": "Reset Image Aspect Ratio",
+    "items": [
+      "reset"
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "reset-image-aspect-ratio",
+  "description": "Resets selected images to their original aspect ratio.",
+  "author": "Giles Perry <giles@gilesperry.info> (http://gilesperry.info/)",
+  "version": "2.0.0",
+  "engines": {
+    "sketch": ">=3.0"
+  },
+  "skpm": {
+    "name": "Reset Image Aspect Ratio",
+    "manifest": "src/manifest.json",
+    "identifier" : "com.gilesperry.reset-image-aspect-ratio",
+    "appcast": "https://api.sketchpacks.com/v1/plugins/com.gilesperry.reset-image-aspect-ratio/appcast",
+    "main": "ResetImageAspectRatio.sketchplugin",
+    "assets": [
+      "assets/**/*"
+    ]
+  },
+  "scripts": {
+    "build": "skpm-build",
+    "watch": "skpm-build --watch",
+    "start": "skpm-build --watch --run",
+    "postinstall": "npm run build && skpm-link"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/perrysmotors/reset-image-aspect-ratio.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@skpm/builder": "^0.5.2"
+  }
+}
