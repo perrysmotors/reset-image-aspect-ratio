@@ -12,12 +12,12 @@ export function onReset(context) {
 
     bitmaps.forEach(layer => {
       let originalSize = layer.image.nsimage.size();
-      resetAspectRatio(layer, originalSize);
+      resetBitmap(layer, originalSize);
     });
 
     rectangles.forEach(layer => {
       let originalSize = layer.style.fills[0].sketchObject.image().NSImage().size();
-      resetAspectRatio(layer, originalSize);
+      resetRectangle(layer, originalSize);
     });
 
     let imageCount = bitmaps.length + rectangles.length;
@@ -58,7 +58,7 @@ function isRectangle(layer) {
   }
 }
 
-function resetAspectRatio(layer, originalSize) {
+function resetBitmap(layer, originalSize) {
 
   let currentAspectRatio = layer.frame.width / layer.frame.height;
   let originalAspectRatio = originalSize.width / originalSize.height;
@@ -70,6 +70,29 @@ function resetAspectRatio(layer, originalSize) {
   } else {
     layer.frame = layer.frame.scale(originalAspectRatio / currentAspectRatio, 1);
   }
+
+  layer.sketchObject.setConstrainProportions(1);
+
+}
+
+function resetRectangle(layer, originalSize) {
+
+  let currentAspectRatio = layer.frame.width / layer.frame.height;
+  let originalAspectRatio = originalSize.width / originalSize.height;
+
+  layer.sketchObject.setConstrainProportions(0);
+
+  let frame = layer.frame;
+
+  if (currentAspectRatio > originalAspectRatio) {
+    frame.width = Math.round(frame.width);
+    frame.height = Math.round(frame.width / originalAspectRatio);
+  } else {
+    frame.height = Math.round(frame.height);
+    frame.width = Math.round(frame.height * originalAspectRatio);
+  }
+
+  layer.frame = frame;
 
   layer.sketchObject.setConstrainProportions(1);
 

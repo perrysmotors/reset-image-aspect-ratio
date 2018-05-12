@@ -16,7 +16,7 @@
       "reset"
     ]
   },
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Resets selected images to their original aspect ratio.",
   "name": "Reset Image Aspect Ratio",
   "disableCocoaScriptPreprocessor": true,
