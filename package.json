@@ -2,14 +2,14 @@
   "name": "reset-image-aspect-ratio",
   "description": "Resets selected images to their original aspect ratio.",
   "author": "Giles Perry <giles@gilesperry.info> (http://gilesperry.info/)",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "engines": {
     "sketch": ">=3.0"
   },
   "skpm": {
     "name": "Reset Image Aspect Ratio",
     "manifest": "src/manifest.json",
-    "identifier" : "com.gilesperry.reset-image-aspect-ratio",
+    "identifier": "com.gilesperry.reset-image-aspect-ratio",
     "appcast": "https://api.sketchpacks.com/v1/plugins/com.gilesperry.reset-image-aspect-ratio/appcast",
     "main": "ResetImageAspectRatio.sketchplugin",
     "assets": [
