@@ -7,8 +7,13 @@ A Sketch plugin that resets the aspect ratio of selected images.
 - Resets bitmaps to their original aspect ratio
 - Rectangles with one image fill are set to match the aspect ratio of the image (to the nearest pixel)
 
-## Install
-Download or clone the repository, and double click `ResetImageAspectRatio.sketchplugin`.
+## Installation
+
+_Requires Sketch 49+_
+
+* [Download](https://github.com/perrysmotors/reset-image-aspect-ratio/releases/latest) the latest release of the plugin
+* Un-zip
+* Double-click on `ResetImageAspectRatio.sketchplugin`.
 
 or...
 
