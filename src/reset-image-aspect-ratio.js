@@ -1,14 +1,15 @@
-var UI = require('sketch/ui'),
-    DOM = require('sketch/dom');
+var UI = require("sketch/ui"),
+  DOM = require("sketch/dom");
 
 export function onReset(context) {
   var document = DOM.getSelectedDocument(),
-      selectedLayers = document.selectedLayers.layers;
+    selectedLayers = document.selectedLayers.layers;
 
   if (selectedLayers.length > 0) {
-
-    let bitmaps = selectedLayers.filter(layer => layer.type === 'Image');
-    let rectangles = selectedLayers.filter(layer => isRectangle(layer) && hasPatternFill(layer));
+    let bitmaps = selectedLayers.filter(layer => layer.type === "Image");
+    let rectangles = selectedLayers.filter(
+      layer => isRectangle(layer) && hasPatternFill(layer)
+    );
 
     bitmaps.forEach(layer => {
       let originalSize = layer.image.nsimage.size();
@@ -16,35 +17,38 @@ export function onReset(context) {
     });
 
     rectangles.forEach(layer => {
-      let originalSize = layer.style.fills[0].sketchObject.image().NSImage().size();
+      let originalSize = layer.style.fills[0].sketchObject
+        .image()
+        .NSImage()
+        .size();
       resetRectangle(layer, originalSize);
     });
 
     let imageCount = bitmaps.length + rectangles.length;
     switch (imageCount) {
       case 0:
-        UI.message('No images were found');
+        UI.message("No images were found");
         break;
       case 1:
-        UI.message('1 image reset');
+        UI.message("1 image reset");
         break;
       default:
         UI.message(`${imageCount} images reset`);
     }
-
   } else {
-    UI.message('Select one or more images');
+    UI.message("Select one or more images");
   }
-
 }
 
 function hasPatternFill(layer) {
-  let patternFills = layer.style.fills.filter(fill => fill.fill === 'Pattern' && fill.enabled);
-  return (patternFills.length === 1);
+  let patternFills = layer.style.fills.filter(
+    fill => fill.fill === "Pattern" && fill.enabled
+  );
+  return patternFills.length === 1;
 }
 
 function isRectangle(layer) {
-  if (layer.type === 'Shape') {
+  if (layer.type === "Shape") {
     let layerCount = layer.sketchObject.layers().count();
     let layerClass = layer.sketchObject.layers()[0].class();
 
@@ -59,24 +63,27 @@ function isRectangle(layer) {
 }
 
 function resetBitmap(layer, originalSize) {
-
   let currentAspectRatio = layer.frame.width / layer.frame.height;
   let originalAspectRatio = originalSize.width / originalSize.height;
 
   layer.sketchObject.setConstrainProportions(0);
 
   if (currentAspectRatio > originalAspectRatio) {
-    layer.frame = layer.frame.scale(1, currentAspectRatio / originalAspectRatio);
+    layer.frame = layer.frame.scale(
+      1,
+      currentAspectRatio / originalAspectRatio
+    );
   } else {
-    layer.frame = layer.frame.scale(originalAspectRatio / currentAspectRatio, 1);
+    layer.frame = layer.frame.scale(
+      originalAspectRatio / currentAspectRatio,
+      1
+    );
   }
 
   layer.sketchObject.setConstrainProportions(1);
-
 }
 
 function resetRectangle(layer, originalSize) {
-
   let currentAspectRatio = layer.frame.width / layer.frame.height;
   let originalAspectRatio = originalSize.width / originalSize.height;
 
@@ -95,5 +102,4 @@ function resetRectangle(layer, originalSize) {
   layer.frame = frame;
 
   layer.sketchObject.setConstrainProportions(1);
-
 }
