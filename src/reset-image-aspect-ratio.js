@@ -49,10 +49,19 @@ function hasPatternFill(layer) {
 
 function isRectangle(layer) {
   if (layer.type === "Shape") {
+    // Sketch 51 and earlier
     let layerCount = layer.sketchObject.layers().count();
     let layerClass = layer.sketchObject.layers()[0].class();
 
     if (layerCount === 1 && layerClass === MSRectangleShape) {
+      return true;
+    } else {
+      return false;
+    }
+  } else if (layer.type === "ShapePath") {
+    // Sketch 52 and later
+    let layerClass = layer.sketchObject.class();
+    if (layerClass === MSRectangleShape) {
       return true;
     } else {
       return false;
