@@ -1,5 +1,5 @@
 # build artifacts
-plugin.sketchplugin
+ResetImageAspectRatio.sketchplugin
 
 # npm
 node_modules
