@@ -2,7 +2,7 @@
   "name": "reset-image-aspect-ratio",
   "description": "Resets selected images to their original aspect ratio.",
   "author": "Giles Perry <giles@gilesperry.info> (http://gilesperry.info/)",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "engines": {
     "sketch": ">=3.0"
   },
