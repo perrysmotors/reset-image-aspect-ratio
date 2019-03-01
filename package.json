@@ -10,7 +10,6 @@
     "name": "Reset Image Aspect Ratio",
     "manifest": "src/manifest.json",
     "identifier": "com.gilesperry.reset-image-aspect-ratio",
-    "appcast": "https://api.sketchpacks.com/v1/plugins/com.gilesperry.reset-image-aspect-ratio/appcast",
     "main": "ResetImageAspectRatio.sketchplugin",
     "assets": [
       "assets/**/*"
