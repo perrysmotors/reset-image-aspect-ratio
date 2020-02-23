@@ -9,9 +9,7 @@ A Sketch plugin that resets the aspect ratio of selected images.
 
 ## Installation
 
-_Requires Sketch 49+_
-
-* [Download](https://github.com/perrysmotors/reset-image-aspect-ratio/releases/latest) the latest release of the plugin
+* [Download](../../releases/latest/download/ResetImageAspectRatio.sketchplugin.zip) the latest release of the plugin
 * Un-zip
 * Double-click on `ResetImageAspectRatio.sketchplugin`.
 
